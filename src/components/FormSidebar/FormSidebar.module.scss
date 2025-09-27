@@ -1,0 +1,72 @@
+.FormSidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    height: 100%;
+
+    & > .logo {
+        height: 48px;
+        margin: 0px 0px 30px 0px;
+
+        & > img {
+            height: 100%;
+        }
+    }
+
+    & > .phrase {
+        color: #FFFFFF;
+        font-size: 26px;
+        font-weight: 500;
+        line-height: 44px;
+    }
+
+    & > button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        height: 50px;
+
+        color: #FFFFFF;
+        font-size: 16px;
+        font-weight: 400;
+        
+        padding: 16px 70px;
+        margin: 60px 0px 0px 0px;
+        border-radius: 10px;
+        border: none;
+
+        background-color: #FF5B5B;
+        cursor: pointer;
+
+        transition: background-color 0.25s ease;
+
+        &:hover {
+            background-color: rgb(213, 64, 64);
+        }
+
+        & > img {
+            height: 30px;
+            margin: 0px 0px 0px 15px;
+            user-select: none;
+            pointer-events: none;
+        }
+
+        &:disabled {
+            background-color: rgb(100, 100, 100);
+
+            &:hover {
+                background-color: rgb(120, 120, 120);
+            }
+        }
+    }    
+}
+
+
+@media (max-width: 1024px) {
+    .FormSidebar {
+        display: none;
+    }
+}

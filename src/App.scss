@@ -1,0 +1,120 @@
+main {
+	position: relative;
+	// display: flex;
+	// align-items: center;
+	// justify-content: center;
+	// gap: 15%;
+
+	width: 100vw;
+	height: 100vh;
+	background-color: #1E1E1E;
+}
+
+main > .container {
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 15%;
+	overflow: scroll;
+
+	width: 100%;
+	height: 100%;
+	
+	z-index: 2;
+
+	&::-webkit-scrollbar {
+		width: 0px;
+		height: 0px;
+	}
+}
+
+main > .blur {
+	position: absolute;
+	// top: -50%;
+	// left: -50%;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+
+	background-color: rgba(30, 30, 30, 0.6);
+	backdrop-filter: blur(80px);
+	
+	z-index: 1;
+}
+
+main > .figure {
+	position: absolute;
+		z-index: 0;
+
+	&.figure-1 {
+		top: 0px;
+
+		width: 150px;
+		height: 150px;
+		background-color: red;
+	}
+
+	&.figure-2 {
+		top: 60%;
+		left: 50%;
+
+		width: 100px;
+		height: 100px;
+		background-color: rgb(0, 8, 255);
+	}
+
+	&.figure-3 {
+		bottom: 20px;
+		right: 100px;
+
+		width: 200px;
+		height: 100px;
+		
+		background-color: rgb(232, 239, 28);
+	}
+
+	&.figure-4 {
+		top: 100px;
+		right: 100px;
+
+		width: 200px;
+		height: 150px;
+		
+		background-color: rgb(255, 0, 0);
+	}	
+	
+	&.figure-5 {
+		top: 0px;
+		right: 20px;
+
+		width: 100px;
+		height: 100px;
+		
+		background-color: rgb(0, 4, 255);
+	}
+}
+
+@media (max-width: 1024px) {
+	main > {
+		overflow: auto;
+	}
+
+	main > .container {
+		flex-direction: column;
+		justify-content: normal;
+		overflow: scroll;
+		scroll-margin-top: 0px;
+		gap: 0px;
+
+		height: calc(100% - 30px - 30px);
+		padding: 30px 0px 30px 0px;
+	}
+
+	main > .figure {
+		&.figure-3 {
+			background-color: rgb(255, 0, 0);
+		}
+	}
+}
