@@ -1,69 +1,40 @@
-# React + TypeScript + Vite
+# 🎓 ExpelPDF
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A tongue-in-cheek web app that generates a **university expulsion request** PDF  
+based on whatever data the user provides.  
+Because sometimes you just *really* want to quit in style.
 
-Currently, two official plugins are available:
+🌐 **Live demo**: [https://x-vlatar-x.github.io/expel-pdf/](https://x-vlatar-x.github.io/expel-pdf/)  
+⚡ Built with React + Vite + TypeScript + Sass
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## ✨ Features
+- 🖋️ Fill in your name, faculty, course and group
+- 📄 Instantly generate a Expulsion Application PDF
+- 😂 Enjoy the absurdity of submitting yourself… to yourself
+- 💾 Download the document and cherish your newfound freedom
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🛠️ Tech Stack
+- **React** – UI library for building components.
+- **TypeScript** – Static type checking.
+- **Vite** – Fast bundler and dev server.
+- **React Hook Form** – Performant form state management and validation.
+- **Yup** – Schema-based validation (used together with React Hook Form).
+- **Sass (SCSS)** – CSS preprocessor for cleaner and more powerful styles.
+- **lottie-react** – Render Lottie JSON animations in React.
+- **pdf-lib** – PDF generation
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 🚀 Getting Started
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Clone the repo and run locally:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+```bash
+git clone https://github.com/x-vlatar-x/expel-pdf.git
+cd expel-pdf
+npm install
+npm run dev
