@@ -1,5 +1,5 @@
 {
-  "homepage": "https://x-vlatar-x.github.io/expel-pdf",
+  "homepage": "https://x-vlatar-x.github.io/expel-pdf/",
   "name": "expelpdf",
   "private": true,
   "version": "0.0.0",
@@ -10,7 +10,7 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",

@@ -1,13 +1,13 @@
+import { useEffect, useRef, useState } from "react"
 import { yupResolver } from "@hookform/resolvers/yup"
-import { useForm, type SubmitHandler } from "react-hook-form"
-import * as yup from "yup"
+import { useForm } from "react-hook-form"
+import { useGlobal } from "@/components/GlobalProvider/GlobalProvider"
+import type { ExpelForm } from "@/interfaces/ExpelFom"
+import { groups } from "@/data/groups"
+import { courses } from "@/data/courses"
+import { faculties } from "@/data/faculties"
 import styles from "./Form.module.scss"
-import { useGlobal } from "../GlobalProvider/GlobalProvider"
-import { faculties } from "../../data/faculties"
-import { groups } from "../../data/groups"
-import { useEffect, useLayoutEffect, useRef, useState } from "react"
-import { courses } from "../../data/courses"
-import type { ExpelForm } from "../../interfaces/ExpelFom"
+import * as yup from "yup"
 
 const schema: yup.ObjectSchema<ExpelForm> = yup.object({
     firstName: yup.string()
@@ -48,7 +48,6 @@ const schema: yup.ObjectSchema<ExpelForm> = yup.object({
 function Form() {
     const {setIsStatementFormulated, setIsFormValid, formData, setFormData, history, setHistoryElement} = useGlobal()
     const {register, handleSubmit, watch, setValue, resetField, formState: {errors, isValid}} = useForm<ExpelForm>({mode: 'onChange', resolver: yupResolver(schema)})
-    // const [facultyValue, setFacultyValue] = useState("")
     const [openSelect, setOpenSelect] = useState<"faculty" | "course" | "group" | null>(null)
     const [isHistoryOpen, setIsHistoryOpen] = useState<boolean>(false)
 
@@ -89,11 +88,9 @@ function Form() {
             }
         }
 
-        // document.addEventListener("mousedown", handleClickOutside)
         document.addEventListener("click", handleClickOutside)
         
         return () => {
-            // document.removeEventListener("mousedown", handleClickOutside)
             document.removeEventListener("click", handleClickOutside)
         }
     }, [facultyFieldRef, courseFieldRef, groupFieldRef, openSelect])
@@ -136,15 +133,6 @@ function Form() {
             })
 
         return () => window.removeEventListener("resize", handleResize)
-
-        // handleResize()
-        // requestAnimationFrame(handleResize)
-
-        // window.addEventListener("resize", handleResize)
-        
-        // return () => {
-        //     window.removeEventListener("resize", handleResize)
-        // }
     }, [facultyFieldRef, courseFieldRef, groupFieldRef, facultiesListRef, coursesListRef, groupsListRef])
 
     const facultyValue = watch("faculty", "")

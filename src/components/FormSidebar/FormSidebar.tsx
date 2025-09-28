@@ -1,4 +1,4 @@
-import { useGlobal } from "../GlobalProvider/GlobalProvider"
+import { useGlobal } from "@/components/GlobalProvider/GlobalProvider"
 import styles from "./FormSidebar.module.scss"
 
 function FormSidebar() {

@@ -1,6 +1,6 @@
+import type { ExpelForm } from "@/interfaces/ExpelFom"
+import type { Nullable } from "@/types/nullable"
 import { createContext, useContext, useEffect, useState } from "react"
-import type { ExpelForm } from "../../interfaces/ExpelFom"
-import type { Nullable } from "../../types/nullable"
 
 type GlobalContextType = {
     isStatementFormulated: boolean
@@ -11,7 +11,6 @@ type GlobalContextType = {
     setFormData: React.Dispatch<React.SetStateAction<Nullable<ExpelForm>>>
     history: HistoryElement[]
     setHistoryElement: (element: ExpelForm) => void
-    // setHistory: React.Dispatch<React.SetStateAction<HistoryElement[]>>
 }
 
 interface HistoryElement extends ExpelForm {

@@ -1,10 +1,10 @@
-import Form from "./components/Form/Form"
-import "./App.scss"
-import Viewer from "./components/Viewer/Viewer"
 import { useEffect, useRef } from "react"
-import FormFooter from "./components/FormFooter/FormFooter"
-import FormSidebar from "./components/FormSidebar/FormSidebar"
-import FormHeader from "./components/FormHeader/FormHeader"
+import FormSidebar from "@/components/FormSidebar/FormSidebar"
+import FormHeader from "@/components/FormHeader/FormHeader"
+import FormFooter from "@/components/FormFooter/FormFooter"
+import Form from "@/components/Form/Form"
+import Viewer from "@/components/Viewer/Viewer"
+import "./App.scss"
 
 function App() {
 	const containerRef = useRef<HTMLDivElement>(null)

@@ -7,7 +7,6 @@ function FormHeader() {
                 <img src={"/ExpelPDF.svg"}/>
             </h1>
             <span className={styles.phrase}>Ще не відрахувався? Дій!</span>
-            {/* <span className={styles.phrase}>Дій!</span> */}
         </div>
 	)
 }

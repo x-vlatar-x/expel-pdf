@@ -1,7 +1,7 @@
+import { GlobalProvider } from '@/components/GlobalProvider/GlobalProvider.tsx'
 import { createRoot } from 'react-dom/client'
-import './index.css'
 import App from './App.tsx'
-import { GlobalProvider } from './components/GlobalProvider/GlobalProvider.tsx'
+import './index.css'
 
 createRoot(document.getElementById('root')!).render(
 	<GlobalProvider>

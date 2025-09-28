@@ -1,11 +1,11 @@
-import { PDFDocument, PDFFont, StandardFonts } from "pdf-lib"
-import styles from "./Viewer.module.scss"
 import { useEffect, useRef, useState } from "react"
-import * as fontkit from "fontkit"
-import { getDocument, GlobalWorkerOptions } from 'pdfjs-dist/legacy/build/pdf.mjs'
-import { useGlobal } from "../GlobalProvider/GlobalProvider"
 import Lottie, { type LottieRefCurrentProps } from "lottie-react"
-import loadingAnimation from "./../../assets/loading.json"
+import { getDocument, GlobalWorkerOptions } from 'pdfjs-dist/legacy/build/pdf.mjs'
+import { useGlobal } from "@/components/GlobalProvider/GlobalProvider"
+import { PDFDocument } from "pdf-lib"
+import * as fontkit from "fontkit"
+import styles from "./Viewer.module.scss"
+import loadingAnimation from "@/assets/loading.json"
 
 GlobalWorkerOptions.workerSrc = new URL('pdfjs-dist/legacy/build/pdf.worker.min.mjs', import.meta.url).toString()
 
@@ -52,7 +52,6 @@ function Viewer() {
                     page.drawText(`${date}`, {x: 70, y: 550, size: 14, font: timesFont})
                     page.drawText(`${date}`, {x: 110, y: 475, size: 14, font: timesFont})
 
-                    // await new Promise(resolve => setTimeout(resolve, 2000))
                     const pdfDocumentBytes = await pdfDocument.save()
 
                     const loadingTask = getDocument(pdfDocumentBytes.buffer as ArrayBuffer)
