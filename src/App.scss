@@ -98,7 +98,7 @@ main > .figure {
 
 @media (max-width: 1024px) {
 	main > {
-		overflow: auto;
+		overflow: visible;
 	}
 
 	main > .container {
