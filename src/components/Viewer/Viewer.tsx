@@ -5,7 +5,10 @@ import { useGlobal } from "@/components/GlobalProvider/GlobalProvider"
 import { PDFDocument } from "pdf-lib"
 import * as fontkit from "fontkit"
 import styles from "./Viewer.module.scss"
-import loadingAnimation from "@/assets/loading.json"
+import loadingAnimation from "@/assets/animations/loading.json"
+import statementUrl from "@/assets/documents/statement.pdf"
+import fontUrl from "@/assets/fonts/times.ttf"
+import downloadIcon from "@/assets/icons/download.svg"
 
 GlobalWorkerOptions.workerSrc = new URL('pdfjs-dist/legacy/build/pdf.worker.min.mjs', import.meta.url).toString()
 
@@ -34,13 +37,13 @@ function Viewer() {
                 
                 const minDelay = new Promise(resolve => setTimeout(resolve, 1000))
                 const pdfJob = (async () => {
-                    const statementBytes = await fetch("/statement.pdf").then(res => res.arrayBuffer())
+                    const statementBytes = await fetch(statementUrl).then(res => res.arrayBuffer())
 
                     const pdfDocument = await PDFDocument.load(statementBytes)
                     const page = pdfDocument.getPages()[0]
                 
                     pdfDocument.registerFontkit(fontkit)
-                    const fontBytes = await fetch("/fonts/times.ttf").then(res => res.arrayBuffer())
+                    const fontBytes = await fetch(fontUrl).then(res => res.arrayBuffer())
                     const timesFont = await pdfDocument.embedFont(fontBytes)
 
                     page.drawText(`${formData.faculty}`, {x: 375, y: 716.5, size: 14, font: timesFont})
@@ -101,7 +104,7 @@ function Viewer() {
                     <Lottie lottieRef={lottieRef} className={styles.animation} animationData={loadingAnimation} loop autoplay/>
                 </div>
                 <button disabled={isLoading} onClick={handleDownloadClick}>
-                    <img src={"/download.svg"}/>
+                    <img src={downloadIcon}/>
                 </button>
             </div>
         </div>

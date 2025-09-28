@@ -9,6 +9,10 @@ import { faculties } from "@/data/faculties"
 import styles from "./Form.module.scss"
 import * as yup from "yup"
 
+import clearIcon from "@/assets/icons/clear.svg"
+import historyIcon from "@/assets/icons/history.svg"
+import loadIcon from "@/assets/icons/load.svg"
+
 const schema: yup.ObjectSchema<ExpelForm> = yup.object({
     firstName: yup.string()
         .required('Обов\'язкове поле!')
@@ -181,7 +185,7 @@ function Form() {
                     <h3>Введіть свої дані</h3>
                 </div>
                 <button className={styles.historyButton} type="button" onClick={() => setIsHistoryOpen(!isHistoryOpen)}>
-                    <img src={"/history.svg"}/>
+                    <img src={historyIcon}/>
                 </button>
                 <form id="dataForm" className={styles.form} onSubmit={handleSubmit(onSubmit)}>
                     <div className={`${styles.historyList} ${isHistoryOpen && styles.open}`}>
@@ -204,7 +208,7 @@ function Form() {
                                 })}`
                             }</span>
                             <button type={"button"} onClick={() => handleHistoryElementLoad(historyElementIndex)}>
-                                <img src={"/load.svg"}/>
+                                <img src={loadIcon}/>
                             </button>
                         </div>)}
                     </div>
@@ -214,7 +218,7 @@ function Form() {
                         </div>
                         <input {...register("lastName")} maxLength={40} autoComplete="off" placeholder="Шевченка"></input>
                         {watch("lastName") && <button className={styles.clear} type="button" onClick={() => resetField("lastName")}>
-                            <img src={"/clear.svg"}/>
+                            <img src={clearIcon}/>
                         </button>}
                         <span>{errors.lastName?.message}</span>
                     </div>
@@ -224,7 +228,7 @@ function Form() {
                         </div>
                         <input {...register("firstName")} maxLength={40} autoComplete="off" placeholder="Тараса"></input>
                         {watch("firstName") && <button className={styles.clear} type="button" onClick={() => resetField("firstName")}>
-                            <img src={"/clear.svg"}/>
+                            <img src={clearIcon}/>
                         </button>}
                         <span>{errors.firstName?.message}</span>
                     </div>
@@ -234,7 +238,7 @@ function Form() {
                         </div>
                         <input {...register("patronymic")} maxLength={40} autoComplete="off" placeholder="Григоровича"></input>
                         {watch("patronymic") && <button className={styles.clear} type="button" onClick={() => resetField("patronymic")}>
-                            <img src={"/clear.svg"}/>
+                            <img src={clearIcon}/>
                         </button>}
                         <span>{errors.patronymic?.message}</span>
                     </div>
@@ -247,7 +251,7 @@ function Form() {
                             facultyFieldRef.current = e
                         }} autoComplete="off" placeholder="НН ІПСА" onFocus={() => setOpenSelect("faculty")}/>
                         {watch("faculty") && <button className={styles.clear} type="button" onClick={() => resetField("faculty")}>
-                            <img src={"/clear.svg"}/>
+                            <img src={clearIcon}/>
                         </button>}
                         <span>{errors.faculty?.message}</span>
                     </div>
@@ -260,7 +264,7 @@ function Form() {
                             courseFieldRef.current = e
                         }} autoComplete="off" placeholder="1" onFocus={() => setOpenSelect("course")}/>
                         {watch("course") && <button className={styles.clear} type="button" onClick={() => resetField("course")}>
-                            <img src={"/clear.svg"}/>
+                            <img src={clearIcon}/>
                         </button>}
                         <span>{errors.course?.message}</span>
                     </div>
@@ -273,7 +277,7 @@ function Form() {
                             groupFieldRef.current = e
                         }} autoComplete="off" placeholder="ОМ-52" onFocus={() => setOpenSelect("group")}/>
                         {watch("group") && <button className={styles.clear} type="button" onClick={() => resetField("group")}>
-                            <img src={"/clear.svg"}/>
+                            <img src={clearIcon}/>
                         </button>}
                         <span>{errors.group?.message}</span>
                     </div>
